@@ -31,7 +31,11 @@ h1 {
 </style>
 </head>
 
-<body>
+<body>x<script>
+if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+   console.log('Esto es un dispositivo móvil');
+}
+</script>
 <div id="mobileshow"><p><a href="https://radiosdeguate.com/amor-escuintla" target="_blank"><strong>Radiosdeguate.com</strong></a></p></div>
 <h1>Radio Amor 89.5 FM</h1>
 <p class="footer"><audio id="audio-element" src="http://69.175.20.242:8206//live" autoplay controls class="w3-card-2 w3-border w3-round-xxlarge" style="width: 100%;"> Tu navegador no soporta la etiqueta Audio. </audio> <script> function loadedMetadata() { channels = audio.mozChannels; rate = audio.mozSampleRate; frameBufferLength = audio.mozFrameBufferLength; } var audio = document.getElementById('audio-element'); audio.addEventListener('loadedmetadata', loadedMetadata, false); </script></p>
