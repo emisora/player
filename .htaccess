@@ -1,12 +1,6 @@
-# Quitar html de url
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
-
-#con www
-RewriteEngine On
-RewriteCond %{HTTP_HOST} ^play.emisorasg.com [NC]
-RewriteRule ^(.*)$ https://www.play.emisorasgt.com/$1 [L,R=301]
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} !^www\.(.*)$ [NC]
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 # cache margen para 1 segundo
 <IfModule mod_alias.c>
@@ -19,7 +13,7 @@ Header set Cache-Control "max-age=1, public, no-transform, must-revalidate"
 Header set Cache-Control "max-age=604800, public, no-transform, must-revalidate"
 </FilesMatch>
 
-# cache 1 año = 31536000 seconds
+# cache 1 aÃ±o = 31536000 seconds
 <FilesMatch "\.(webp|jpg|jpeg|png|gif|ico|ttf|otf|woff)$">
 Header set Cache-Control "max-age=31536000, public, no-transform, must-revalidate"
 </FilesMatch>
